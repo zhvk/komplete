@@ -2,4 +2,12 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="charcoal">#FF264653</color>
+    <color name="persian_green">#FF2A9D8F</color>
+    <color name="saffron">#FFE9C46A</color>
+    <color name="sandy_brown">#FFF4A261</color>
+    <color name="burnt_sienna">#FFE76F51</color>
+
+    <color name="dark_cyan">#FF4D908E</color>
+    <color name="zomp">#FF43AA8B</color>
 </resources>

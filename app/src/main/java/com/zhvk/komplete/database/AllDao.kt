@@ -1,22 +1,23 @@
 package com.zhvk.komplete.database
 
 import androidx.room.*
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface AllDao {
 
     @Transaction
     @Query("SELECT * FROM category")
-    fun loadCategoriesOfTasks(): List<CategoryOfTasks>
+    fun loadCategoriesOfTasks(): Flow<List<CategoryOfTasks>>
 
     @Query("SELECT * FROM task WHERE parentCategoryId=:id")
-    fun loadTasksFromCategory(id: Int): List<Task>
+    fun loadTasksFromCategory(id: Int): Flow<List<Task>>
 
     @Transaction
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertCategory(vararg category: Category)
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertTask(vararg task: Task)
 
     @Transaction
