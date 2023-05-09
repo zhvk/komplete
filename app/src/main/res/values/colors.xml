@@ -10,4 +10,14 @@
 
     <color name="dark_cyan">#FF4D908E</color>
     <color name="zomp">#FF43AA8B</color>
+
+    <color name="gray1">#FFF8F9FA</color>
+    <color name="gray2">#FFE9ECEF</color>
+    <color name="gray3">#FFDEE2E6</color>
+    <color name="gray4">#FFCED4DA</color>
+    <color name="gray5">#FFADB5BD</color>
+    <color name="gray6">#FF6C757D</color>
+    <color name="gray7">#FF495057</color>
+    <color name="gray8">#FF343A40</color>
+    <color name="gray9">#FF212529</color>
 </resources>

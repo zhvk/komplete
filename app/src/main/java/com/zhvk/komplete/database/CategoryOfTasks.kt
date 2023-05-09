@@ -11,15 +11,15 @@ data class CategoryOfTasks(
     )
     val tasks: List<Task>
 ) {
-    fun getNumberOfTasks(): String = tasks.size.toString()
+    fun getNumberOfTasks(): Int = tasks.size
 
-    fun getCompletedTasks(): String = getCompletedTasksInt().toString()
+    fun getCompletedTasks(): Int = tasks.filter { it.completed }.size
+
+    fun getRemainingTasks(): Int = tasks.filter { !it.completed }.size
 
     fun getPercentageDone(): String {
         return if (tasks.isNotEmpty())
-            String.format("%.0f", getCompletedTasksInt() / tasks.size.toDouble() * 100.00)
+            String.format("%.0f", getCompletedTasks() / tasks.size.toDouble() * 100.00)
         else "0"
     }
-
-    private fun getCompletedTasksInt(): Int = tasks.filter { it.completed }.size
 }

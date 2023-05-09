@@ -1,7 +1,12 @@
 <resources>
     <string name="app_name">Komplete</string>
-    <string name="category_progress">%1$s/%2$s tasks • %3$s\%%"</string>
+    <string name="category_progress">%1$d/%2$d tasks • %3$s\%%"</string>
     <string name="categories">Categories</string>
     <string name="hint_category_name">Category name</string>
     <string name="hint_new_task">Add a new task</string>
+    <string name="total_categories">%d total categories</string>
+    <plurals name="remaining_tasks">
+        <item quantity="one" formatted="true">%d task remaining</item>
+        <item quantity="other" formatted="true">%d tasks remaining</item>
+    </plurals>
 </resources>

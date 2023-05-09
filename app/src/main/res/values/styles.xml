@@ -53,14 +53,14 @@
 
     <!-- Custom button -->
     <style name="Widget.Komplete.Button" parent="@android:style/Widget.Button">
-        <item name="android:background">@drawable/button_custom_background</item>
+        <item name="android:background">@drawable/button_custom_background2</item>
         <item name="android:gravity">center_vertical|center_horizontal</item>
         <item name="android:textColor">#FFFFFFFF</item>
         <item name="android:shadowColor">#FF000000</item>
         <item name="android:shadowDx">0</item>
         <item name="android:shadowDy">0</item>
-        <item name="android:paddingStart">32dp</item>
-        <item name="android:paddingEnd">32dp</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingEnd">12dp</item>
         <item name="android:shadowRadius">0.0</item>
         <item name="android:textSize">12sp</item>
         <item name="android:fontFamily">@font/open_sans_semibold</item>

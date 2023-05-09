@@ -24,48 +24,54 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:alphaEnabled="@{task.completed}"
-            android:background="@{task.colorDrawable}">
+            android:layout_height="wrap_content"
+            app:completedState="@{task.completed}"
+            app:context="@{context}">
 
             <CheckBox
                 android:id="@+id/task_completed_checkbox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:buttonTint="@color/white"
+                android:layout_margin="4dp"
                 android:checked="@{task.completed}"
                 android:onCheckedChanged="@{() -> viewModel.completeTask(task)}"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0" />
 
             <TextView
                 android:id="@+id/task_name"
-                style="@style/TextAppearance.Komplete.Header2.White"
+                style="@style/TextAppearance.Komplete.Header2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
                 android:text="@{task.title}"
+                app:completedState="@{task.completed}"
+                app:context="@{context}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/task_completed_checkbox"
-                app:layout_constraintTop_toTopOf="@id/task_completed_checkbox"
+                app:layout_constraintTop_toTopOf="parent"
                 app:strikeThrough="@{task.completed}"
                 tools:text="Create a new blog post" />
 
             <TextView
                 android:id="@+id/task_description"
-                style="@style/TextAppearance.Komplete.NormalText.White"
+                style="@style/TextAppearance.Komplete.NormalText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="8dp"
                 android:text="@{task.description}"
+                app:completedState="@{task.completed}"
+                app:context="@{context}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/task_name"
                 app:layout_constraintTop_toBottomOf="@id/task_name"
+                app:layout_constraintVertical_bias="0"
                 app:strikeThrough="@{task.completed}"
                 tools:text="Do something about something else" />
 

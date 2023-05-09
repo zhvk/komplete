@@ -11,3 +11,6 @@ Please note that this app is a work-in-progress and is missing some features and
 * Update category color
 * Hide/move completed tasks
 * Make UI more attractive
+
+## Screenshots
+<img src="https://i.imgur.com/5UrUXrN.png" width="200">

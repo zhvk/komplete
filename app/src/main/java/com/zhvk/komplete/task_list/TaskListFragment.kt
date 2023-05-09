@@ -16,6 +16,7 @@ import com.zhvk.komplete.R
 import com.zhvk.komplete.databinding.FragmentTaskListBinding
 import kotlinx.coroutines.launch
 
+
 const val CATEGORY_ID = "categoryId"
 private const val TAG = "TaskListFragment"
 
@@ -82,10 +83,15 @@ class TaskListFragment : Fragment() {
             taskListViewModel.getCategoryOfTasks(categoryId).collect() {
                 Log.d(TAG, "Observing: ${it.tasks}")
                 binding.taskListTitle.text = it.category.title
+                val remainingTasks = it.getRemainingTasks()
+                binding.taskListSubtitle.text = resources.getQuantityString(
+                    R.plurals.remaining_tasks,
+                    remainingTasks,
+                    remainingTasks
+                )
                 taskListAdapter.submitList(it.tasks)
             }
         }
-
     }
 
     override fun onDestroyView() {

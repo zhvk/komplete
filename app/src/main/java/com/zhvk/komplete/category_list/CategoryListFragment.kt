@@ -50,6 +50,7 @@ class CategoryListFragment : Fragment() {
         binding.apply {
             lifecycleOwner = viewLifecycleOwner
             fragment = this@CategoryListFragment
+            viewModel = categoryListViewModel
 
             categoryListRecyclerView.adapter = adapter
         }
