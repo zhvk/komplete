@@ -10,8 +10,15 @@ interface AllDao {
     @Query("SELECT * FROM category")
     fun loadCategoriesOfTasks(): Flow<List<CategoryOfTasks>>
 
+    @Transaction
+    @Query("SELECT * FROM category WHERE categoryId=:id")
+    fun loadCategoryOfTasks(id: Long): Flow<CategoryOfTasks>
+
     @Query("SELECT * FROM task WHERE parentCategoryId=:id")
-    fun loadTasksFromCategory(id: Int): Flow<List<Task>>
+    fun loadTasksFromCategory(id: Long): Flow<List<Task>>
+
+    @Query("SELECT * FROM category WHERE categoryId=:id")
+    fun getCategory(id: Long): Flow<Category>
 
     @Transaction
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -19,6 +26,9 @@ interface AllDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertTask(vararg task: Task)
+
+    @Update
+    suspend fun updateTask(task: Task)
 
     @Transaction
     @Delete

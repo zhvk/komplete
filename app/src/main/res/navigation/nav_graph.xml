@@ -7,5 +7,17 @@
     <fragment
         android:id="@+id/categoryListFragment"
         android:name="com.zhvk.komplete.category_list.CategoryListFragment"
-        android:label="CategoryListFragment" />
+        android:label="CategoryListFragment" >
+        <action
+            android:id="@+id/action_categoryListFragment_to_taskListFragment"
+            app:destination="@id/taskListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/taskListFragment"
+        android:name="com.zhvk.komplete.task_list.TaskListFragment"
+        android:label="TaskListFragment" >
+        <argument
+            android:name="categoryId"
+            app:argType="long" />
+    </fragment>
 </navigation>

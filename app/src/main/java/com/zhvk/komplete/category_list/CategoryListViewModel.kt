@@ -1,7 +1,6 @@
 package com.zhvk.komplete.category_list
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
@@ -10,7 +9,6 @@ import com.zhvk.komplete.database.AllDao
 import com.zhvk.komplete.database.Category
 import com.zhvk.komplete.database.CategoryOfTasks
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 
 class CategoryListViewModel(

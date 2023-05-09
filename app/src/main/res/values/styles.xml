@@ -8,13 +8,23 @@
         <item name="android:alpha">0.92</item>
     </style>
 
-    <!-- Header -->
+    <!-- Header1 -->
     <style name="TextAppearance.Komplete.Header1" parent="TextAppearance.Komplete.Title">
         <item name="android:textSize">22sp</item>
     </style>
 
-    <!-- Header white -->
+    <!-- Header1 white -->
     <style name="TextAppearance.Komplete.Header1.White" parent="TextAppearance.Komplete.Header1">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!-- Header2 -->
+    <style name="TextAppearance.Komplete.Header2" parent="TextAppearance.Komplete.Title">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <!-- Header2 white -->
+    <style name="TextAppearance.Komplete.Header2.White" parent="TextAppearance.Komplete.Header2">
         <item name="android:textColor">@color/white</item>
     </style>
 
@@ -35,8 +45,8 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
-    <!-- TextInputLayout -->
-    <style name="Widget.ShoppingKart.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+    <!-- TextInputLayout1 -->
+    <style name="Widget.ShoppingKart.TextInputLayout1" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="android:fontFamily">@font/open_sans</item>
 <!--        <item name="startIconTint">@color/burnt_sienna</item>-->
     </style>

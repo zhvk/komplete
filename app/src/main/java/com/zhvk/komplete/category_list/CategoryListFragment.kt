@@ -1,19 +1,18 @@
 package com.zhvk.komplete.category_list
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import com.zhvk.komplete.KompleteApplication
 import com.zhvk.komplete.R
 import com.zhvk.komplete.databinding.FragmentCategoryListBinding
-import javax.sql.DataSource
+
+private const val TAG = "CategoryListFragment"
 
 class CategoryListFragment : Fragment() {
 
@@ -31,8 +30,9 @@ class CategoryListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding =
-            DataBindingUtil.inflate(inflater, R.layout.fragment_category_list, container, false)
+        _binding = DataBindingUtil.inflate(
+            inflater, R.layout.fragment_category_list, container, false
+        )
         return binding.root
     }
 
@@ -40,8 +40,11 @@ class CategoryListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val adapter = CategoryListAdapter {
-//            val action = ItemListFragmentDirections.actionItemListFragmentToItemDetailFragment(itemId =  it.id, kupus = "123")
-//            view.findNavController().navigate(action)
+            val action =
+                CategoryListFragmentDirections.actionCategoryListFragmentToTaskListFragment(
+                    categoryId = it.category.categoryId
+                )
+            view.findNavController().navigate(action)
         }
 
         binding.apply {

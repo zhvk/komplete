@@ -1,5 +1,6 @@
 package com.zhvk.komplete.category_list
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -7,6 +8,8 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.zhvk.komplete.database.CategoryOfTasks
 import com.zhvk.komplete.databinding.ItemCategoryBinding
+
+private const val TAG = "CategoryListAdapter"
 
 class CategoryListAdapter(
     private val clickListener: (CategoryOfTasks) -> Unit
@@ -23,13 +26,14 @@ class CategoryListAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryOfTasksViewHolder {
-        val layoutInflater = LayoutInflater.from(parent.context)
+        Log.d(TAG, "onCreateViewHolder")
         return CategoryOfTasksViewHolder(
-            ItemCategoryBinding.inflate(layoutInflater, parent, false)
+            ItemCategoryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         )
     }
 
     override fun onBindViewHolder(holder: CategoryOfTasksViewHolder, position: Int) {
+        Log.d(TAG, "onBindViewHolder")
         val categoryOfTasks = getItem(position)
         holder.itemView.setOnClickListener{
             clickListener(categoryOfTasks)
@@ -42,6 +46,7 @@ class CategoryListAdapter(
     ): RecyclerView.ViewHolder(binding.root) {
 
         fun bind(categoryOfTasks: CategoryOfTasks) {
+            Log.d(TAG, "bind()")
             binding.categoryOfTasks = categoryOfTasks
             binding.executePendingBindings()
         }

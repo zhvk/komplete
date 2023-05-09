@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.zhvk.komplete.task_list.TaskListViewModel" />
+
+        <variable
+            name="task"
+            type="com.zhvk.komplete.database.Task" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginVertical="8dp"
+        android:elevation="16dp"
+        app:cardCornerRadius="16dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:alphaEnabled="@{task.completed}"
+            android:background="@{task.colorDrawable}">
+
+            <CheckBox
+                android:id="@+id/task_completed_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:buttonTint="@color/white"
+                android:checked="@{task.completed}"
+                android:onCheckedChanged="@{() -> viewModel.completeTask(task)}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/task_name"
+                style="@style/TextAppearance.Komplete.Header2.White"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="16dp"
+                android:text="@{task.title}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/task_completed_checkbox"
+                app:layout_constraintTop_toTopOf="@id/task_completed_checkbox"
+                app:strikeThrough="@{task.completed}"
+                tools:text="Create a new blog post" />
+
+            <TextView
+                android:id="@+id/task_description"
+                style="@style/TextAppearance.Komplete.NormalText.White"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                android:text="@{task.description}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/task_name"
+                app:layout_constraintTop_toBottomOf="@id/task_name"
+                app:strikeThrough="@{task.completed}"
+                tools:text="Do something about something else" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>
